@@ -15,7 +15,7 @@ public interface CustomerService {
 	void update(Customer customer, Integer id);
 
 	Customer search(Integer id);
-
+//faijan ncjsvkjb
 	void addAll(List<Customer> list);
 
 	Customer findMob(String mob);
