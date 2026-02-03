@@ -72,7 +72,7 @@ public class CustomerController {
 		return ResponseEntity.ok(temp);
 //		return cs.findMob(mob);
 	}
-	
+	//jfusfbsfsf
 	@PostMapping("search/name/{name}")
 	public ResponseEntity<?>searchName(@PathVariable String name){
 		List<Customer> temp = cs.findByName(name);
@@ -85,8 +85,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping("search/address/{address}")
-	public ResponseEntity<?>searchaddress(@PathVariable String addresss){
-		List<Customer> temp = cs.findByAddress(addresss);
+	public ResponseEntity<?>searchaddress(@PathVariable String address){
+		List<Customer> temp = cs.findByAddress(address);
 		if(temp == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body("NOT FOUND!!");
