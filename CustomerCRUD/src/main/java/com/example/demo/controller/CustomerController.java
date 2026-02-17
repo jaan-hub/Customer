@@ -29,7 +29,7 @@ public class CustomerController {
 	@PostMapping("add all")
 	public void addAll(@RequestBody List<Customer>list) {
 //		list.forEach(x -> cs.add(x));//for one by one
-		cs.addAll(list);
+		cs.addAll(list);//it will add many entries in one set
 	}
 	
 	@GetMapping("display")
