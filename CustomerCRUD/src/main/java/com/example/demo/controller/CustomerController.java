@@ -34,7 +34,7 @@ public class CustomerController {
 	
 	@GetMapping("display")
 	public List<Customer>display(){
-		return cs.display();
+		return cs.display();//display all customers
 	}
 	
 	@DeleteMapping("delete/{id}")
