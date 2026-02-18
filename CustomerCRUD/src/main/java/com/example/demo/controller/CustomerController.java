@@ -18,9 +18,9 @@ import com.example.demo.model.Customer;
 import com.example.demo.service.CustomerService;
 
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/customers")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 	
 	@Autowired
@@ -31,7 +31,7 @@ public class CustomerController {
 		cs.add(c);
 	}
 	
-	@PostMapping("add-all")
+	@PostMapping("/add-all")
 	public void addAll(@RequestBody List<Customer>list) {
 //		list.forEach(x -> cs.add(x));//for one by one
 		cs.addAll(list);//it will add many entries in one set
