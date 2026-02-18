@@ -5,39 +5,44 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Customer;
 import com.example.demo.service.CustomerService;
 
+
+@CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/customers")
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService cs;
 	
-	@PostMapping("add")
+	@PostMapping("/add")
 	public void add(@RequestBody Customer c) {
 		cs.add(c);
 	}
 	
-	@PostMapping("add all")
+	@PostMapping("add-all")
 	public void addAll(@RequestBody List<Customer>list) {
 //		list.forEach(x -> cs.add(x));//for one by one
 		cs.addAll(list);//it will add many entries in one set
 	}
 	
-	@GetMapping("display")
+	@GetMapping("/display")
 	public List<Customer>display(){
 		return cs.display();//display all customers
 	}
 	
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		Customer temp = cs.delete(id);
 		if(temp == null) {
@@ -49,7 +54,7 @@ public class CustomerController {
 	}
 	
 	
-	@PostMapping("search/{id}")
+	@PostMapping("/search/{id}")
 	public ResponseEntity<?> search(@PathVariable Integer id) {
 		Customer temp = cs.search(id);
 		if(temp == null) {
